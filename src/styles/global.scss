@@ -1,2 +1,15 @@
-@import "tailwindcss";
+html {
+    font-size: 62.5%;
+}
 
+body {
+    font-size: 1.6rem;
+}
+
+.hero {
+    & img {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+    }
+}
