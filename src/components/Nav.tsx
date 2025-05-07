@@ -1,11 +1,14 @@
 import { useState } from "react"
 import styles from "./Nav.module.scss"
 import { Link } from "@tanstack/react-router"
+import logo from "../assets/logo.png"
 
 export const Nav = ({ homePage }: { homePage: boolean }) => {
     const [open, setOpen] = useState(false)
 
     return <nav>
+        <img className={styles.logo} src={logo} alt="Logo" />
+
         <button className={styles.icon} onClick={() => setOpen(true)}>
             <i className="fa-solid fa-bars" />
         </button>
