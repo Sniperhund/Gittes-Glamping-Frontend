@@ -1,0 +1,12 @@
+@use "../styles/variables" as *;
+
+.icon {
+    padding: 19px 17px;
+    background-color: $icon-background;
+    border-radius: 25px 0;
+    color: white;
+
+    & i {
+        font-size: 22px;
+    }
+}
