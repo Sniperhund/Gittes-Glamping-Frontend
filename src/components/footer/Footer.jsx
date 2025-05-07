@@ -2,7 +2,7 @@ import styles from './Footer.module.css';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className={styles.footer}>
         <div className="social-media-icons">
           <i className="fa-brands fa-facebook"></i>
             <i className="fa-brands fa-instagram"></i>
