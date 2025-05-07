@@ -18,19 +18,32 @@
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
         font-weight: 600;
-        color: #1e1e1e;
+        color: #fff;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        background-image: url("/src/assets/image_01.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
     }
+
     .h2 {
         font-family: "Zen Loop";
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        font-weight: 500;
-        color: #333;
+        font-size: 1.125rem;
+        line-height: 1.8;
+        color: #fff;
+        background-color: #33626c;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
     }
 
     .text {
         font-size: 1.125rem;
         line-height: 1.8;
-        color: #555;
+        color: #fff;
+        background-color: #33626c;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
     }
 }
