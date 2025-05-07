@@ -11,9 +11,16 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as OpholdImport } from './routes/ophold'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const OpholdRoute = OpholdImport.update({
+  id: '/ophold',
+  path: '/ophold',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -32,6 +39,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/ophold': {
+      id: '/ophold'
+      path: '/ophold'
+      fullPath: '/ophold'
+      preLoaderRoute: typeof OpholdImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -39,32 +53,37 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ophold': typeof OpholdRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ophold': typeof OpholdRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/ophold': typeof OpholdRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/ophold'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/ophold'
+  id: '__root__' | '/' | '/ophold'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  OpholdRoute: typeof OpholdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  OpholdRoute: OpholdRoute,
 }
 
 export const routeTree = rootRoute
@@ -77,11 +96,15 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.jsx",
       "children": [
-        "/"
+        "/",
+        "/ophold"
       ]
     },
     "/": {
       "filePath": "index.jsx"
+    },
+    "/ophold": {
+      "filePath": "ophold.jsx"
     }
   }
 }
