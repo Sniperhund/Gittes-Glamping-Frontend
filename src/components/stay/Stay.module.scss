@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Loop&display=swap");
 .staySection {
     padding: 4rem 2rem;
-    background-color: #f9f9f9;
+    background-color: #ced3cd;
     color: #333;
+    width: 100%;
 
     @media (min-width: 768px) {
         padding: 6rem 4rem;
@@ -17,7 +19,7 @@
         font-family: "Zen Loop";
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
-        font-weight: 600;
+        font-weight: 100%;
         color: #fff;
         padding: 2rem;
         border-radius: 0.5rem;
@@ -25,12 +27,13 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+        background-color: rgba(51, 98, 108, 0.6);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     }
 
     .h2 {
         font-family: "Zen Loop";
-        font-size: 1.125rem;
+
         line-height: 1.8;
         color: #fff;
         background-color: #33626c;
@@ -45,5 +48,52 @@
         background-color: #33626c;
         padding: 1.5rem;
         border-radius: 0.5rem;
+    }
+}
+
+.offerSection {
+    background-image: url("/src/assets/image_02.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 3rem 2rem;
+    text-align: center;
+    color: #fff;
+    border-radius: 1rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    position: relative;
+
+    .offerContainer {
+        width: 50%;
+        background-color: #c5b496;
+        border-radius: 5rem 0 5rem 0;
+        padding: 1rem;
+        font-family: "Zen Loop", cursive;
+        h1 {
+            font-size: 6rem;
+            color: #ffffff;
+        }
+        h2,
+        h3 {
+            font-size: 3.5rem;
+            color: #ffffff;
+        }
+    }
+}
+
+.button {
+    background-color: rgba(130, 155, 151, 0.9);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+        background-color: rgba(130, 155, 151, 1);
     }
 }
