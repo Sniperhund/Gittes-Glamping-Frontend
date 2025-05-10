@@ -3,6 +3,8 @@
 nav {
     color: white;
     height: 0;
+    position: relative;
+    z-index: $nav-zIndex;
 }
 
 .icon {
