@@ -7,7 +7,7 @@ export const Nav = ({ homePage }: { homePage: boolean }) => {
     const [open, setOpen] = useState(false)
 
     return <nav>
-        <img className={styles.logo} src={logo} alt="Logo" />
+        {homePage && <img className={styles.logo} src={logo} alt="Logo" />}
 
         <button className={styles.icon} onClick={() => setOpen(true)}>
             <i className="fa-solid fa-bars" />
