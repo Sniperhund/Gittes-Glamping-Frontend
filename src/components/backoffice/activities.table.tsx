@@ -21,6 +21,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
+import "@/styles/font-size.scss"
 
 const Activity = ({ data, refetch }: any) => {
     if (!data) return <></>
@@ -41,10 +42,57 @@ const Activity = ({ data, refetch }: any) => {
             })
     }
 
+    const { register, handleSubmit } = useForm()
+    const [open, setOpen] = useState(false)
+
+    const updateActivity = (formData: any) => {
+        fetch(`${import.meta.env.VITE_BACKEND}activities`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                ...formData,
+                _id: data._id
+            })
+        })
+            .then(() => {
+                toast.success("Updated activity")
+
+                refetch()
+            })
+
+        setOpen(false)
+    }
+
     return <TableRow key={data._id}>
         <TableCell>{data.title}</TableCell>
         <TableCell className="flex justify-between gap-2">
-            <Button>Update</Button>
+            <Dialog open={open} onOpenChange={setOpen}>
+                <DialogTrigger asChild>
+                    <Button>Update</Button>
+                </DialogTrigger>
+                <DialogContent>
+                    <DialogHeader>
+                        <DialogTitle>Update activity</DialogTitle>
+                    </DialogHeader>
+                    <form className="space-y-2" onSubmit={handleSubmit(updateActivity)}>
+                        <Label>Title</Label>
+                        <Input placeholder="Fællesbål" {...register("title")} defaultValue={data.title} />
+
+                        <Label>Description</Label>
+                        <Textarea placeholder="Bål med andre mennesker" {...register("description")} defaultValue={data.description} />
+
+                        <Label>Weekday</Label>
+                        <Input placeholder="Mandag" {...register("weekday")} defaultValue={data.weekday} />
+
+                        <Label>Time</Label>
+                        <Input placeholder="12:00" {...register("time")} defaultValue={data.time} />
+
+                        <Button type="submit" className="w-full">Submit</Button>
+                    </form>
+                </DialogContent>
+            </Dialog>
             <Button onClick={deleteActivity}>Delete</Button>
         </TableCell>
     </TableRow>
@@ -84,6 +132,7 @@ export const ActivitiesTable = () => {
     }, [])
 
     const { register, handleSubmit } = useForm()
+    const [open, setOpen] = useState(false)
 
     const submit = async (data: any) => {
         await fetch(`${import.meta.env.VITE_BACKEND}activities`, {
@@ -119,7 +168,7 @@ export const ActivitiesTable = () => {
             </TableBody>
         </Table>
 
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 <Button className="w-full">Add new</Button>
             </DialogTrigger>
