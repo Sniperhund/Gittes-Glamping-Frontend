@@ -1,9 +1,8 @@
+import styles from "@/styles/home.module.scss";
 import { createFileRoute } from "@tanstack/react-router";
-import test from "../assets/image_00.jpg"
 
 const Home = () => {
-    return <section className="hero">
-        <img src={test} alt="" />
+    return <section className={styles.hero}>
     </section>
 }
 

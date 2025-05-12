@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import styles from "./Nav.module.scss"
 import { Link, useRouter } from "@tanstack/react-router"
-import logo from "../assets/logo.png"
 
 export const Nav = ({ homePage }: { homePage: boolean }) => {
     const [open, setOpen] = useState(false)
@@ -18,7 +17,7 @@ export const Nav = ({ homePage }: { homePage: boolean }) => {
 
     return <nav>
         <div>
-            {!homePage ? <Link to="/"><img className={styles.logo} src={logo} alt="Logo" /></Link>: <div />}
+            {!homePage ? <Link to="/"><img className={styles.logo} src="/logo.png" alt="Logo" /></Link>: <div />}
 
             <button className={styles.icon} onClick={() => setOpen(true)}>
                 <i className="fa-solid fa-bars" />
