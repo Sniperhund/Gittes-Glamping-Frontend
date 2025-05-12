@@ -1,42 +1,42 @@
 .footer {
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  background-color: #2a4f57;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px;
-  gap: 20px;
-  flex-direction: column;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #2a4f57;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    gap: 20px;
+    flex-direction: column;
 }
 
 .social-media-icons {
-  gap: 100px;
+    gap: 100px;
 }
 
-i {
-  padding: 10px;
-  color: white;
-  font-size: 60px;
-  cursor: pointer;
-  transition: color 0.3s ease;
+.footer i {
+    padding: 10px;
+    color: white;
+    font-size: 60px;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 .container {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
 }
 
-img {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
+.footer img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
 }
 
-h2 {
+.footer h2 {
     font-family: "Zen Loop";
-  color: white;
-  font-size: 30px;
-  margin: 0;
+    color: white;
+    font-size: 30px;
+    margin: 0;
 }
