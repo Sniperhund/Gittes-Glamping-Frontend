@@ -1,0 +1,24 @@
+import { createFileRoute, Link, useLocation, useNavigate } from "@tanstack/react-router"
+import { useEffect } from "react"
+
+function Backoffice() {
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    useEffect(() => {
+        if (location.pathname != "/backoffice")
+            return
+
+        navigate({ to: "/backoffice/activities" })
+    }, [])
+
+    return <>
+        <Link to="/backoffice/activities">Aktiviteter</Link>
+        <Link to="/backoffice/reviews">Anmeldelser</Link>
+        <Link to="/backoffice/stay">Ophold</Link>
+    </>
+}
+
+export const Route = createFileRoute("/backoffice")({
+    component: Backoffice,
+})

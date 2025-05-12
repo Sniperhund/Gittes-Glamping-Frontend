@@ -15,7 +15,7 @@ function RootComponent() {
             <Nav homePage={location.pathname == "/"} />
             <Outlet />
             <TanStackRouterDevtools position="bottom-right" />
-            <Footer />
+            {!location.pathname.startsWith("/backoffice") && <Footer />}
         </>
     );
 }
