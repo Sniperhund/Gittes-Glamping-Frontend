@@ -101,7 +101,7 @@ export const routeTree = rootRoute
       ]
     },
     "/": {
-      "filePath": "index.jsx"
+      "filePath": "index.tsx"
     },
     "/ophold": {
       "filePath": "ophold.jsx"

@@ -1,3 +1,125 @@
-.hero {
+.big-button {
+    max-width: 280px;
+    width: 100%;
 
+    text-transform: uppercase;
+
+    display: inline-block;
+
+    padding: 25px;
+    border-radius: 50px 0;
+}
+
+.hero {
+    width: 100vw;
+    height: calc(100vh + 50px);
+
+    background: linear-gradient(0deg, rgba(129, 129, 129, 0.78) 0%, rgba(129, 129, 129, 0.78) 100%), url("/image_00.jpg") lightgray 50% / cover no-repeat;
+
+    color: white;
+    font-family: "Zen Loop";
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    & img {
+        width: 72px;
+        height: 72px;
+
+        margin-bottom: 7px;
+    }
+
+    & h1 {
+        font-size: 6.4rem;
+        line-height: 1;
+
+        margin-bottom: 55px;
+
+        & > span {
+            font-size: 9.6rem;
+        }
+    }
+
+    & a {
+        @extend .big-button;
+        font-size: 4.8rem;
+        border: 1px solid white;
+    }
+}
+
+/* This holds everything the bottom and top border have in common */
+.border-helper {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 50px;
+    background-color: #33626C;
+}
+
+.intro::before {
+    @extend .border-helper;
+    top: -49px;
+    border-radius: 50px 0 0 0;
+}
+
+.intro::after {
+    @extend .border-helper;
+    bottom: -49px;
+    border-radius: 0 0 50px 0;
+}
+
+.intro {
+    position: relative;
+
+    width: 100vw;
+    padding: calc(80px - 50px) 20px; /* Maybe use max-width */
+
+    background-color: #33626C;
+
+    color: white;
+    text-align: center;
+
+    & h2, & a {
+        font-family: "Zen Loop";
+    }
+
+    & h2 {
+        font-size: 6.4rem;
+        margin-bottom: 13px;
+    }
+
+    & p {
+        line-height: 1.4;
+        font-size: 1.5rem;
+        font-family: "Nanum Gothic";
+        margin-bottom: 36px;
+    }
+
+    & img {
+        width: 55%;
+        aspect-ratio: 1;
+        margin: 0 auto;
+
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+
+        margin-bottom: 36px;
+    }
+
+    & a {
+        @extend .big-button;
+        background-color: #829B97;
+
+        font-size: 4rem;
+    }
+}
+
+.reviews {
+    background-color: #CED3CD;
+    height: calc(1px + 50px); /* +50px for the border */
 }

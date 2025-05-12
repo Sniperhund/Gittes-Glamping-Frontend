@@ -13,7 +13,7 @@ const router = createRouter({
 
 WebFont.load({
     google: {
-        families: ["Zen Loop", "NanumGothic"]
+        families: ["Zen Loop", "Nanum Gothic"]
     }
 })
 
