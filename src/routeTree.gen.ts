@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as OpholdImport } from './routes/ophold'
+import { Route as BackofficeImport } from './routes/backoffice'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
@@ -19,6 +20,12 @@ import { Route as IndexImport } from './routes/index'
 const OpholdRoute = OpholdImport.update({
   id: '/ophold',
   path: '/ophold',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const BackofficeRoute = BackofficeImport.update({
+  id: '/backoffice',
+  path: '/backoffice',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -39,6 +46,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/backoffice': {
+      id: '/backoffice'
+      path: '/backoffice'
+      fullPath: '/backoffice'
+      preLoaderRoute: typeof BackofficeImport
+      parentRoute: typeof rootRoute
+    }
     '/ophold': {
       id: '/ophold'
       path: '/ophold'
@@ -53,36 +67,41 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/backoffice': typeof BackofficeRoute
   '/ophold': typeof OpholdRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/backoffice': typeof BackofficeRoute
   '/ophold': typeof OpholdRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/backoffice': typeof BackofficeRoute
   '/ophold': typeof OpholdRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ophold'
+  fullPaths: '/' | '/backoffice' | '/ophold'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ophold'
-  id: '__root__' | '/' | '/ophold'
+  to: '/' | '/backoffice' | '/ophold'
+  id: '__root__' | '/' | '/backoffice' | '/ophold'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BackofficeRoute: typeof BackofficeRoute
   OpholdRoute: typeof OpholdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BackofficeRoute: BackofficeRoute,
   OpholdRoute: OpholdRoute,
 }
 
@@ -97,11 +116,15 @@ export const routeTree = rootRoute
       "filePath": "__root.jsx",
       "children": [
         "/",
+        "/backoffice",
         "/ophold"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/backoffice": {
+      "filePath": "backoffice.tsx"
     },
     "/ophold": {
       "filePath": "ophold.jsx"

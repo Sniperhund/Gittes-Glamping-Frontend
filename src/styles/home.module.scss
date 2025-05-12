@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 .big-button {
     max-width: 280px;
     width: 100%;
@@ -14,7 +16,7 @@
     width: 100vw;
     height: calc(100vh + 50px);
 
-    background: linear-gradient(0deg, rgba(129, 129, 129, 0.78) 0%, rgba(129, 129, 129, 0.78) 100%), url("/image_00.jpg") lightgray 50% / cover no-repeat;
+    background: linear-gradient(0deg, $hero-overlay 0%, $hero-overlay 100%), url("/image_00.jpg") lightgray 50% / cover no-repeat;
 
     color: white;
     font-family: "Zen Loop";

@@ -4,6 +4,6 @@ function Backoffice() {
     return <>Backoffice</>
 }
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/backoffice")({
     component: Backoffice,
 })
