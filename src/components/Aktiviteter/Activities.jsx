@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../Aktiviteter/Activities.module.css";
+import styles from "./Activities.module.css";
 
 const Activities = () => {
     const [activities, setActivities] = useState([]); // Pluralized state variable

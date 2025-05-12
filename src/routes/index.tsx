@@ -1,6 +1,7 @@
 import styles from "@/styles/home.module.scss"
 import { createFileRoute, Link } from "@tanstack/react-router"
 import { use } from "react"
+import "@/styles/font-size.scss"
 
 const Home = () => {
     const fetchReviews = async () => {
