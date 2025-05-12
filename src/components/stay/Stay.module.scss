@@ -22,7 +22,7 @@
         font-weight: 100%;
         color: #fff;
         padding: 2rem;
-        border-radius: 0.5rem;
+        border-radius: 5rem 0 5rem 0;
         background-image: url("/src/assets/image_01.jpg");
         background-size: cover;
         background-position: center;
@@ -47,27 +47,28 @@
         color: #fff;
         background-color: #33626c;
         padding: 1.5rem;
-        border-radius: 0.5rem;
+        border-radius: 5rem 0 5rem 0;
     }
 }
 
 .offerSection {
-    background-image: url("/public/activities/stays/weekend.jpg");
+    background-image: url("public/activities/stays/weekend.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 3rem 2rem;
+    padding: 43px 17px 43px 17px;
     text-align: center;
     color: #fff;
-    border-radius: 1rem;
+    border-radius: 5rem 0 5rem 0;
     margin: 2rem auto;
     max-width: 600px;
     position: relative;
 
     .offerContainer {
         width: 50%;
-        left: 100%;
         position: center;
+        border: none;
+        cursor: pointer;
         background-color: #c5b496;
         border-radius: 5rem 0 5rem 0;
         padding: 3rem 0 2rem 0;
@@ -85,11 +86,12 @@
 }
 
 .button {
+    font-family: "Zen Loop", cursive;
     background-color: rgba(130, 155, 151, 0.9);
     color: white;
     width: 30%;
     padding: 2rem;
-    font-size: 1rem;
+    font-size: 4rem;
     border: none;
     border-radius: 2.5rem 0 2.5rem 0;
     cursor: pointer;
