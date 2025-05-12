@@ -1,0 +1,65 @@
+.container{
+    background-image: url(/src/assets/image_04.jpg);
+    background-size: cover;
+    width: 100%;
+    background-position: center;
+    height: 100vh;
+    
+}
+
+.overlay{
+    position: absolute;
+   display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3636368F;
+    height: 100vh;
+}
+
+.header{
+    display: grid;
+    justify-content: center;
+    margin: 150px;
+}
+
+.logo{
+height: 72px;
+width: 72px;
+place-self: center;
+}
+
+.h1{
+    font-family: 'Zen Loop';
+    color: white;
+    text-align: center;
+    font-size: 96px;
+    line-height: 100px;
+}
+
+.container2{
+    background-color: #33626C;
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 600px;
+}
+
+.p1{
+    color: white;
+    font-family: 'Nanum Gothic';
+    font-size: 15px;
+    text-align: center;
+    line-height: 21px;
+}
+
+.h2{
+    font-family: Zen Loop;
+    color: white;
+    text-align: center;
+    font-size: 64px;
+}
