@@ -5,6 +5,11 @@ nav {
     height: 0;
     position: relative;
     z-index: $nav-zIndex;
+    pointer-events: none;
+
+    & a, & button {
+        pointer-events: initial;
+    }
 
     /* Container for logo and burger-menu button */
     & > div {

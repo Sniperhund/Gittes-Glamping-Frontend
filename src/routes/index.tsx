@@ -1,7 +1,18 @@
 import styles from "@/styles/home.module.scss"
 import { createFileRoute, Link } from "@tanstack/react-router"
+import { use } from "react"
 
 const Home = () => {
+    const fetchReviews = async () => {
+        return [{
+            review: "Min kæreste og jeg fejrede vores årsdag med et ophold ved Gittes Glamping. Det vil vi helt sikkert gøre igen. personalet var virkelig søde og servicemindede, og maden og stemningen var i top.",
+            age: 34,
+            name: "Lise",
+        }]
+    }
+
+    const reviews = use(fetchReviews())
+
     return (
         <>
             <section className={styles.hero}>
@@ -35,7 +46,9 @@ const Home = () => {
             </section>
 
             <section className={styles.reviews}>
+                <h2>Vores gæster udtaler</h2>
 
+                
             </section>
         </>
     )

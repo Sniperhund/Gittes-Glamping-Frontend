@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as OpholdImport } from './routes/ophold'
 import { Route as BackofficeImport } from './routes/backoffice'
+import { Route as AktiviteterImport } from './routes/aktiviteter'
 import { Route as IndexImport } from './routes/index'
 import { Route as BackofficeReviewsImport } from './routes/backoffice/reviews'
 import { Route as BackofficeActivitiesImport } from './routes/backoffice/activities'
@@ -28,6 +29,12 @@ const OpholdRoute = OpholdImport.update({
 const BackofficeRoute = BackofficeImport.update({
   id: '/backoffice',
   path: '/backoffice',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AktiviteterRoute = AktiviteterImport.update({
+  id: '/aktiviteter',
+  path: '/aktiviteter',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -58,6 +65,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/aktiviteter': {
+      id: '/aktiviteter'
+      path: '/aktiviteter'
+      fullPath: '/aktiviteter'
+      preLoaderRoute: typeof AktiviteterImport
       parentRoute: typeof rootRoute
     }
     '/backoffice': {
@@ -109,6 +123,7 @@ const BackofficeRouteWithChildren = BackofficeRoute._addFileChildren(
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aktiviteter': typeof AktiviteterRoute
   '/backoffice': typeof BackofficeRouteWithChildren
   '/ophold': typeof OpholdRoute
   '/backoffice/activities': typeof BackofficeActivitiesRoute
@@ -117,6 +132,7 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aktiviteter': typeof AktiviteterRoute
   '/backoffice': typeof BackofficeRouteWithChildren
   '/ophold': typeof OpholdRoute
   '/backoffice/activities': typeof BackofficeActivitiesRoute
@@ -126,6 +142,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/aktiviteter': typeof AktiviteterRoute
   '/backoffice': typeof BackofficeRouteWithChildren
   '/ophold': typeof OpholdRoute
   '/backoffice/activities': typeof BackofficeActivitiesRoute
@@ -136,6 +153,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/aktiviteter'
     | '/backoffice'
     | '/ophold'
     | '/backoffice/activities'
@@ -143,6 +161,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/aktiviteter'
     | '/backoffice'
     | '/ophold'
     | '/backoffice/activities'
@@ -150,6 +169,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/aktiviteter'
     | '/backoffice'
     | '/ophold'
     | '/backoffice/activities'
@@ -159,12 +179,14 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AktiviteterRoute: typeof AktiviteterRoute
   BackofficeRoute: typeof BackofficeRouteWithChildren
   OpholdRoute: typeof OpholdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AktiviteterRoute: AktiviteterRoute,
   BackofficeRoute: BackofficeRouteWithChildren,
   OpholdRoute: OpholdRoute,
 }
@@ -180,12 +202,16 @@ export const routeTree = rootRoute
       "filePath": "__root.jsx",
       "children": [
         "/",
+        "/aktiviteter",
         "/backoffice",
         "/ophold"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/aktiviteter": {
+      "filePath": "aktiviteter.jsx"
     },
     "/backoffice": {
       "filePath": "backoffice.tsx",
